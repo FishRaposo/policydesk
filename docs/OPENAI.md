@@ -6,7 +6,11 @@ No actual API request, API credential access or empirical model run was performe
 
 ## Install and launch
 
-The release wheel bundles the compiled browser, so Node.js is unnecessary at runtime. Install uv, then use the exact wheel launcher in the README. `policydesk serve --enable-live` reads `OPENAI_API_KEY` only when live execution is enabled; otherwise it asks with a non-echoing terminal prompt. Noninteractive input cannot fall back to echoing. There is no key CLI argument, browser field, saved setting, analytics or hosted proxy.
+The release wheel bundles the compiled browser, so Node.js is unnecessary at runtime. Install uv, then use the exact wheel launcher in the README. When live execution is enabled, `policydesk serve --enable-live` reads `OPENAI_API_KEY` or, if it is unset, asks with a non-echoing terminal prompt. Without `--enable-live`, it neither reads a key nor prompts for one. There is no key CLI argument, browser field, saved setting, analytics or hosted proxy.
+
+Run the launcher in an interactive terminal for hidden entry. Empty input and input containing internal whitespace are rejected; Ctrl+C aborts without accepting a key. Noninteractive execution without `OPENAI_API_KEY` fails safely instead of falling back to echoing. The first install may download Python and the language-detector package before the prompt appears; these are dependency downloads, not OpenAI API requests.
+
+The [clean-install verification record](SETUP_VERIFICATION.md) distinguishes real terminal/browser setup checks from intercepted SDK workflow tests. It does not establish live provider behavior or empirical results.
 
 The app serves only http://127.0.0.1:8765/policydesk/. Startup does not validate the key or list models. A ticket or comparison starts only when the recruiter explicitly clicks Run. HTTP and browser controls contain no key; the server process contacts the fixed OpenAI endpoint directly with the chosen key. SDK ambient authorization headers are discarded, and the exact tested SDK version is pinned. OpenAI/httpx/httpcore debug logs are suppressed. Exiting the process releases its key reference; no secure RAM erasure is promised.
 

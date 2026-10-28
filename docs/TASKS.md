@@ -49,3 +49,13 @@ Genuine API acceptance, authentic recordings, empirical baseline/model and cost/
 Observed 2026-10-28: release revision cc86638ca98b5fdb8d5e0397b57b85f6b6f32317; [main checks and Pages deployment](https://github.com/FishRaposo/policydesk/actions/runs/40637871352) passed all jobs; [prerelease](https://github.com/FishRaposo/policydesk/releases/tag/v0.2.0-prototype.1) contains the tested bundled wheel and source archive with matching uploaded/downloaded SHA-256 digests. Fresh clone passed 226 Python tests, reproducible exports, outbound-denied replay, static23/local8 browser checks and retained clean Git status. Hosted Pages served only its four static resources; the unverified-live status and installation link were visible at 390/768/1440. Hub tracking is FTH-038/D-026; no actual OpenAI key or API request was used.
 
 OpenAI integration implemented; live verification and empirical results not yet performed. None of these gates permit agents, CI or release verification to use an actual key or request the OpenAI API.
+
+## Published recruiter setup audit — 2026-10-28
+
+- [x] Exact public wheel command in an isolated Windows working directory, fresh uv/Python installation and credential-free child environment.
+- [x] Real hidden prompt, empty/invalid input, interruption, fake environment key and safe noninteractive rejection.
+- [x] Packaged browser defaults, disclosures, keyboard/layouts and zero startup/navigation provider attempts.
+- [x] Nine installed-wheel SDK-intercepted browser checks, including active comparison cancellation and incomplete-result retention.
+- [x] Main-only README/guide corrections; published tag/assets/installer link unchanged.
+
+Evidence and limitations: [recruiter setup verification](SETUP_VERIFICATION.md). No packaged-runtime defect was found; genuine OpenAI behavior and empirical measurements remain unperformed.

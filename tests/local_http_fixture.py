@@ -4,6 +4,7 @@ Not a product entrypoint. No environment switch or route can activate this fixtu
 in the packaged app. Its process denies every non-loopback connection and DNS call.
 """
 
+import asyncio
 import json
 import os
 import socket
@@ -53,7 +54,10 @@ def message(value):
     }
 
 
-def handler(request):
+async def handler(request):
+    # Model a yielding network round trip so the ASGI loop can serve cancellation
+    # while a mocked comparison is active. This delay is synthetic, not API latency.
+    await asyncio.sleep(0.02)
     body = json.loads(request.content)
     if request.url.host != "api.openai.com":
         raise AssertionError("Unexpected SDK destination")

@@ -41,7 +41,7 @@ uv run policydesk list-cases
 uv run policydesk eval --split heldout
 ```
 
-Dependency installation needs network access. Once dependencies are installed, replay runs without a key or provider connection. A missing or mismatched cassette raises an error; it never silently selects a canned default. Arbitrary new ticket text is not supported by this prototype.
+Dependency installation needs network access. Once dependencies are installed, replay runs without a key or provider connection. A missing or mismatched cassette raises an error; it never silently selects a canned default. Synthetic replay accepts only its known ticket fixtures. The opt-in local OpenAI mode accepts new fictional ticket text and requires your own key and explicit Run confirmation.
 
 For the editable browser sandbox:
 

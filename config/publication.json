@@ -8,7 +8,7 @@
     "scope": "Accepted PolicyDesk recruiter-run OpenAI integration and v0.2.0-prototype.1 delivery; required truthful unverified-live status; no OpenAI API requests in implementation/CI/release verification"
   },
   "finalized_files": {
-    "README.md": "abe9405fa7dd06dcebafac80089a75cc1a73ce418d2a2ff8193147dd59aba242",
+    "README.md": "20638f8d278d27a5c9f349e4c480f55df63b21bd0d1ccdcebf1af4374b73b27a",
     "docs/CASE_STUDY.md": "31be78ca97914eac1019b28b9056c4dbc7cce8ce1e0b7382a325a5126f4e5d6f"
   },
   "repository_description": "Policy sandbox with deterministic rules, an offline demo, and opt-in local OpenAI testing.",

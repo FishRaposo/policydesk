@@ -122,6 +122,23 @@ test('actual paired development comparison completes 27 mock pairs without empir
   await expect(page.getByRole('button',{name:'Record local authorization',exact:true})).toHaveCount(0);
 });
 
+test('actual comparison cancellation retains an analysis-only report and no approvals',async({page})=>{
+  await ready(page);await resetTicket(page);
+  await page.getByLabel('Maximum comparison cost (USD)',{exact:true}).fill('2.00');
+  await page.getByLabel('Session spending limit (USD)',{exact:true}).fill('5.00');
+  const started=page.waitForResponse(r=>r.url().endsWith('/api/runs')&&r.request().method()==='POST');
+  await page.getByRole('button',{name:'Run paired comparison',exact:true}).click();
+  const id=String((await (await started).json()).id);
+  const cancel=page.getByRole('button',{name:'Cancel local job',exact:true});
+  await expect(cancel).toBeEnabled();await cancel.click();
+  await expect(page.locator('#local-status')).toHaveText('Job cancelled');
+  const report=await (await page.request.get(`/api/runs/${id}/report?format=json`)).json();
+  expect(report.result.independent_benchmark).toBe(false);
+  expect(report.result.human_review_performed).toBe(false);
+  expect(report.result.complete_pairs).toBeLessThan(report.result.planned_pairs);
+  await expect(page.getByRole('button',{name:'Record local authorization',exact:true})).toHaveCount(0);
+});
+
 for(const width of [390,768,1440])test(`actual local runtime keyboard and layout ${width}px`,async({page},info)=>{
   await page.setViewportSize({width,height:900});await ready(page);await resetTicket(page);
   const run=page.getByRole('button',{name:'Run using my OpenAI key',exact:true});await run.focus();await expect(run).toBeFocused();await page.keyboard.press('Enter');
