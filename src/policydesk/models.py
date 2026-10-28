@@ -1,7 +1,7 @@
 """Validated application contracts. Money crosses JSON boundaries as strings."""
 
 import re
-from datetime import date
+from datetime import date, datetime
 from decimal import ROUND_HALF_UP, Decimal, InvalidOperation
 from typing import Annotated, Literal
 
@@ -16,7 +16,7 @@ TODAY = date(2026, 11, 2)
 
 
 def money(value: object) -> Decimal:
-    if isinstance(value, (float, bool)) or not isinstance(value, (str, Decimal, int)):
+    if not isinstance(value, (str, Decimal)):
         raise ValueError("Money must be a decimal string")
     if isinstance(value, str) and (
         len(value) > 40 or re.fullmatch(r"[0-9]+(?:\.[0-9]+)?", value) is None
@@ -31,7 +31,18 @@ def money(value: object) -> Decimal:
         raise ValueError("Invalid decimal money") from exc
 
 
-Money = Annotated[Decimal, BeforeValidator(money)]
+Money = Annotated[Decimal, BeforeValidator(money, json_schema_input_type=str)]
+
+
+def calendar_date(value: object) -> date:
+    if isinstance(value, date) and not isinstance(value, datetime):
+        return value
+    if not isinstance(value, str) or re.fullmatch(r"[0-9]{4}-[0-9]{2}-[0-9]{2}", value) is None:
+        raise ValueError("Use an exact ISO calendar date, not a timestamp")
+    return date.fromisoformat(value)
+
+
+CalendarDate = Annotated[date, BeforeValidator(calendar_date, json_schema_input_type=str)]
 Identifier = Annotated[str, Field(min_length=1, max_length=80, pattern=r"^[A-Za-z0-9_-]+$")]
 
 
@@ -44,6 +55,10 @@ class Item(Contract):
     price: Money
 
 
+class LookupOrderArguments(Contract):
+    order_id: Identifier
+
+
 class Order(Contract):
     order_id: Identifier
     customer_id: Identifier
@@ -51,9 +66,9 @@ class Order(Contract):
     items: list[Item] = Field(min_length=1, max_length=20)
     shipping_fee: Money
     status: Literal["delivered", "in_transit", "processing"]
-    shipped_at: date | None
-    estimated_delivery: date
-    delivered_at: date | None
+    shipped_at: CalendarDate | None
+    estimated_delivery: CalendarDate
+    delivered_at: CalendarDate | None
     carrier_status: Literal["delivered", "in_transit", "exception"]
     subscription_id: Identifier | None
 

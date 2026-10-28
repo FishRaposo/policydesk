@@ -5,7 +5,7 @@ from typing import Any
 
 from pydantic import ValidationError
 
-from .models import Decision, DraftReply, Extraction, Order, Ticket, Violation
+from .models import Decision, DraftReply, Extraction, LookupOrderArguments, Order, Ticket, Violation
 from .openai_client import ResponseClient, request
 from .policy import evaluate
 from .replies import render
@@ -38,7 +38,8 @@ def run(ticket: Ticket, store: Store, client: ResponseClient, today: date) -> di
         ambiguous = False
         for call in calls:
             if call["name"] == "lookup_order" and set(call["arguments"]) == {"order_id"}:
-                status, candidate = store.lookup(call["arguments"]["order_id"], ticket.customer_id)
+                arguments = LookupOrderArguments.model_validate(call["arguments"])
+                status, candidate = store.lookup(arguments.order_id, ticket.customer_id)
                 denied = denied or status == "ownership_denied"
                 if candidate:
                     seen[candidate.order_id] = candidate

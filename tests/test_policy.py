@@ -202,6 +202,22 @@ def test_rounding_is_half_up():
     assert money("1.004") == Decimal("1.00")
 
 
+def test_json_money_requires_a_string_not_an_integer():
+    from policydesk.models import Item
+
+    with pytest.raises(ValidationError):
+        Item.model_validate_json('{"name":"Fictional coffee","price":10}')
+    assert Item.model_validate_json('{"name":"Fictional coffee","price":"10"}').price == Decimal(
+        "10.00"
+    )
+
+
+@pytest.mark.parametrize("value", ["2026-11-02T00:00:00Z", "2026-11-02T00:00:00", 0, "20261102"])
+def test_order_dates_require_exact_calendar_representations(value):
+    with pytest.raises(ValidationError):
+        order(estimated_delivery=value)
+
+
 @pytest.mark.parametrize(
     "updates",
     [

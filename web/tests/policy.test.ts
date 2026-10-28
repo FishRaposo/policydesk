@@ -50,7 +50,10 @@ describe('independent browser boundary oracles', () => {
   test.each(['-1', 'NaN', 'Infinity', '1e2', '1000000001', '1000000000.004', '1,20'])('rejects invalid amount %s', (value) => {
     expect(() => minor(value)).toThrow();
   });
-  test.each(['2026-02-30', '2026-11-03'])('rejects invalid/future delivery %s', (value) => {
+  test.each(['2026-02-30', '2026-11-03', '0000-01-01'])('rejects invalid/future delivery %s', (value) => {
     expect(() => validateOrder({...base, delivered_at: value})).toThrow();
+  });
+  test('zero calendar year is rejected even when shipment chronology is coherent', () => {
+    expect(() => validateOrder({...base, shipped_at:'0000-01-01',estimated_delivery:'0000-01-02',delivered_at:'0000-01-02'})).toThrow();
   });
 });

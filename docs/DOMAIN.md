@@ -10,7 +10,7 @@ All date logic uses `POLICYDESK_TODAY`, default **2026-11-02**, so evals give th
 
 ## Policy v1
 
-Stored in `policy/v1.yaml`. Each clause has an id, a short text in all three languages (the draft step cites these verbatim), and a machine rule the engine implements. The YAML text and the engine must agree; a test renders each rule's inputs and checks the outcome named in its text.
+Stored in `src/policydesk/data/policy.yaml`. Each clause has an ID and text in all three languages. Replies carry the permitted clause IDs; the browser shows localized policy text separately. Deterministic unit tests exercise every rule and boundary. No model or consumer-law interpretation is involved.
 
 | Id | Rule | Outcome |
 |---|---|---|
@@ -28,21 +28,21 @@ Stored in `policy/v1.yaml`. Each clause has an id, a short text in all three lan
 
 ## Fixtures
 
-`fixtures/orders.yaml`: 12 customers, about 30 orders, chosen so every clause and every boundary has at least one order that hits it.
+`src/policydesk/data/orders.yaml` contains fictional order fixtures. `scripts/author_cases.py` documents their original construction; the evaluator and unit tests exercise rule boundaries. The frozen regression dataset is packaged under `src/policydesk/data/cases/`.
 
 | Field | Example |
 |---|---|
 | `order_id` | `GN-1007` |
 | `customer_id` | `C-03` |
-| `customer_language` | `pt` (the language they usually write in; tickets may differ) |
+| ticket `language` | `pt` / `es` / `en`; trusted separately from the order and replay extraction |
 | `currency` | `BRL` / `MXN` / `USD` |
-| `items` | `[{sku: "BEAN-CATUAI-500", name: "Catuaí 500 g", price: "79.90"}]` |
+| `items` | `[{name: "Fictional coffee", price: "79.90"}]` |
 | `shipping_fee` | `"14.90"` |
 | `status` | `delivered` / `in_transit` / `processing` |
 | `shipped_at`, `estimated_delivery`, `delivered_at` | ISO dates relative to the frozen date |
 | `carrier_status` | `delivered` / `in_transit` / `exception` |
 | `subscription_id` | `SUB-02` or null |
 
-Boundary orders to include: delivered exactly 7 and 8 days ago (RF-1), exactly 30 and 31 (RF-2), exactly 9 and 10 days past estimate (RF-3), refunds just under and just over each currency's LM-1 limit, a subscription box shipped and one not shipped, and one order whose carrier says delivered while the customer says it never arrived.
+Boundary tests include delivery exactly 7/8 days ago (RF-1), 30/31 (RF-2), 9/10 days past estimate (RF-3), below/at/above every currency limit, shipped/unshipped subscription boxes, and carrier delivery disputes. Some boundary orders are constructed by unit tests rather than persisted fixtures.
 
-Customers: four write in Portuguese (BRL), four in Spanish (MXN), four in English (USD), with two "switchers" whose tickets mix languages. Names are invented and obviously fictional; no real people, addresses or phone numbers.
+Customer identifiers are fictional; case languages cover Portuguese (BRL), Spanish (MXN), English (USD), and mixed-language messages with a declared trusted reply language. No real people, addresses or phone numbers are used. API extraction accuracy is unmeasured.

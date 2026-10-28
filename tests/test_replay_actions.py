@@ -184,6 +184,9 @@ def test_ambiguous_recent_orders_cannot_authorize(store):
 @pytest.mark.parametrize(
     "calls",
     [
+        [{"name": "lookup_order", "arguments": {"order_id": []}}],
+        [{"name": "lookup_order", "arguments": {"order_id": {"id": "GN-1007"}}}],
+        [{"name": "lookup_order", "arguments": {"order_id": 1007}}],
         [{"name": "lookup_order", "arguments": {"order_id": "GN-1007", "customer_id": "C-OTHER"}}],
         [{"name": "refund", "arguments": {"order_id": "GN-1007"}}],
         [{"name": "list_recent_orders", "arguments": {}}] * 4,
@@ -200,3 +203,4 @@ def test_invalid_tool_arguments_or_excess_rounds_hand_off(store, calls):
     assert result["decision"]["outcome"] == "needs_human"
     assert result["pending_actions"] == []
     assert result["decision"]["reasons"] == ["invalid_extraction"]
+    assert store.history()[-1]["payload"]["decision"]["reasons"] == ["invalid_extraction"]
