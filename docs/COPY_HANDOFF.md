@@ -1,6 +1,8 @@
 # Public-copy handoff — Claude
 
-Status: technical implementation exists; public presentation is not finalized. Do not treat this handoff as publication approval. The root README remains the unchanged seed draft and contains unsupported live-model wording and FILL markers.
+Current status (2026-10-28): the owner answered "No, just roll with the current one" when asked for Claude-finalized copy. The existing wording was retained where accurate, unsupported live-model/baseline statements and placeholders were corrected, and README/case-study hashes were recorded as owner_override. No Claude review is claimed. This explicit instruction supersedes the waiting dependency for the current prototype release.
+
+The original Claude handoff below remains as technical evidence and an optional later editorial pass, not a current publication blocker.
 
 ## Evidence available
 

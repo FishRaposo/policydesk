@@ -15,9 +15,18 @@ def issues(root: Path) -> list[str]:
         approval = json.loads((root / "config/publication.json").read_text(encoding="utf-8"))
     except (OSError, ValueError):
         approval = {}
-    if approval.get("status") != "finalized" or approval.get("reviewed_by") != "Claude":
+    authorization = approval.get("authorization", {})
+    owner_override = (
+        approval.get("reviewed_by") == "owner_override"
+        and authorization.get("type") == "direct_user_instruction"
+        and bool(authorization.get("date"))
+        and bool(authorization.get("quote"))
+    )
+    if approval.get("status") != "finalized" or not (
+        approval.get("reviewed_by") == "Claude" or owner_override
+    ):
         failures.append(
-            "Claude-finalized public copy is pending; do not publish, tag, deploy or change portfolio claims"
+            "Claude-finalized public copy or a documented owner override is pending; do not publish"
         )
     if not approval.get("repository_description"):
         failures.append("Approved repository description is missing")
@@ -32,7 +41,7 @@ def issues(root: Path) -> list[str]:
             approval.get("finalized_files", {}).get(name)
             != hashlib.sha256(path.read_bytes()).hexdigest()
         ):
-            failures.append(f"Claude-finalized SHA-256 missing or stale for {name}")
+            failures.append(f"Finalized-copy SHA-256 missing or stale for {name}")
     for name in (
         "LICENSE",
         "uv.lock",

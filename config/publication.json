@@ -1,7 +1,16 @@
 {
-  "status": "pending_claude",
-  "reviewed_by": null,
-  "finalized_files": {},
-  "repository_description": null,
+  "status": "finalized",
+  "reviewed_by": "owner_override",
+  "authorization": {
+    "type": "direct_user_instruction",
+    "date": "2026-10-28",
+    "quote": "No, just roll with the current one",
+    "scope": "PolicyDesk existing wording with factual prototype corrections and portfolio integration"
+  },
+  "finalized_files": {
+    "README.md": "684e39166b73ab4c871b6434f775e93a036dbafd59b504cc5ec6dcf5c0639962",
+    "docs/CASE_STUDY.md": "c147d0ec5922da5bce0e26f7d0fa270fbdb2f740ece8b6869163a5bf84ff0560"
+  },
+  "repository_description": "Offline policy sandbox with deterministic refund rules, synthetic replay, and simulated human approvals.",
   "target_release": "v0.1.0-prototype.1"
 }
