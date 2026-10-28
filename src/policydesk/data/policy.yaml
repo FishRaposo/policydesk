@@ -1,0 +1,33 @@
+version: v1
+today: '2026-11-02'
+windows: {RF-1: 7, RF-2: 30, RF-3: 10}
+limits: {BRL: '400.00', MXN: '1500.00', USD: '80.00'}
+clauses:
+  ID-1:
+    en: The order must belong to the customer writing in. Otherwise hand off without revealing order data.
+    pt: O pedido deve pertencer ao cliente que escreveu. Caso contrário, encaminhar sem revelar dados do pedido.
+    es: El pedido debe pertenecer al cliente que escribe. De lo contrario, derivar sin revelar sus datos.
+  RF-1:
+    en: Change of mind within 7 calendar days of delivery refunds the item subtotal, excluding shipping.
+    pt: Desistência em até 7 dias corridos da entrega permite reembolso dos itens, sem o frete.
+    es: El cambio de opinión dentro de 7 días naturales de la entrega permite reembolsar los artículos, sin envío.
+  RF-2:
+    en: Damaged or wrong items reported within 30 days of delivery receive a full refund including shipping.
+    pt: Itens danificados ou incorretos informados em até 30 dias da entrega permitem reembolso total, incluindo frete.
+    es: Los artículos dañados o incorrectos notificados dentro de 30 días de la entrega permiten reembolso total, incluido el envío.
+  RF-3:
+    en: Non-delivery at least 10 days past the estimate allows a full refund unless the carrier reports delivery; that dispute needs a person.
+    pt: Atraso de pelo menos 10 dias após a previsão permite reembolso total. Se a transportadora informa entrega, uma pessoa deve avaliar.
+    es: Un retraso de al menos 10 días desde la fecha prevista permite reembolso total. Si el transportista indica entrega, debe revisarlo una persona.
+  SB-1:
+    en: Cancel the subscription at the next cycle; refund the current box including shipping only if unshipped.
+    pt: Cancelar a assinatura no próximo ciclo; reembolsar a caixa atual, incluindo frete, somente se ainda não foi enviada.
+    es: Cancelar la suscripción en el próximo ciclo; reembolsar la caja actual, incluido el envío, solo si no se ha enviado.
+  LM-1:
+    en: Refunds above BRL 400, MXN 1500 or USD 80 require human review of the entire request.
+    pt: Reembolsos acima de BRL 400, MXN 1500 ou USD 80 exigem revisão humana de toda a solicitação.
+    es: Reembolsos superiores a BRL 400, MXN 1500 o USD 80 requieren revisión humana de toda la solicitud.
+  XX-0:
+    en: Requests not covered by this fictional policy require human review.
+    pt: Solicitações não previstas nesta política fictícia exigem revisão humana.
+    es: Las solicitudes no previstas en esta política ficticia requieren revisión humana.

@@ -27,9 +27,14 @@ select = ["E", "F", "I", "UP", "B"]
 ignore = ["E501"]
 
 [tool.pyright]
+venvPath = "."
+venv = ".venv"
 include = ["src", "tests", "scripts"]
 typeCheckingMode = "standard"
 pythonVersion = "3.12"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/policydesk"]
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/author_cases.py" = ["B023"]

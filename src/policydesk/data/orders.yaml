@@ -1,0 +1,468 @@
+- order_id: GN-1001
+  customer_id: C-01
+  currency: BRL
+  items:
+  - name: Fictional coffee
+    price: '79.90'
+  shipping_fee: '14.90'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-26'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1002
+  customer_id: C-01
+  currency: BRL
+  items:
+  - name: Fictional coffee
+    price: '79.90'
+  shipping_fee: '14.90'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-03'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1003
+  customer_id: C-01
+  currency: BRL
+  items:
+  - name: Fictional coffee
+    price: '79.90'
+  shipping_fee: '14.90'
+  status: in_transit
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-10-23'
+  delivered_at: null
+  carrier_status: in_transit
+  subscription_id: null
+- order_id: GN-1004
+  customer_id: C-01
+  currency: BRL
+  items:
+  - name: Fictional coffee
+    price: '79.90'
+  shipping_fee: '14.90'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-25'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1005
+  customer_id: C-01
+  currency: BRL
+  items:
+  - name: Fictional coffee
+    price: '79.90'
+  shipping_fee: '14.90'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-02'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1006
+  customer_id: C-01
+  currency: BRL
+  items:
+  - name: Fictional coffee
+    price: '400.01'
+  shipping_fee: '0.00'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-31'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1007
+  customer_id: C-01
+  currency: BRL
+  items:
+  - name: Fictional coffee
+    price: '79.90'
+  shipping_fee: '14.90'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-31'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1008
+  customer_id: C-01
+  currency: BRL
+  items:
+  - name: Fictional coffee
+    price: '79.90'
+  shipping_fee: '14.90'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-31'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1009
+  customer_id: C-02
+  currency: BRL
+  items:
+  - name: Fictional coffee
+    price: '79.90'
+  shipping_fee: '14.90'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-31'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1010
+  customer_id: C-03
+  currency: BRL
+  items:
+  - name: Fictional coffee
+    price: '79.90'
+  shipping_fee: '14.90'
+  status: processing
+  shipped_at: null
+  estimated_delivery: '2026-11-07'
+  delivered_at: null
+  carrier_status: in_transit
+  subscription_id: SUB-pt
+- order_id: GN-1011
+  customer_id: C-03
+  currency: BRL
+  items:
+  - name: Fictional coffee
+    price: '79.90'
+  shipping_fee: '14.90'
+  status: in_transit
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-10-24'
+  delivered_at: null
+  carrier_status: in_transit
+  subscription_id: SUB-pt
+- order_id: GN-1012
+  customer_id: C-04
+  currency: BRL
+  items:
+  - name: Fictional coffee
+    price: '79.90'
+  shipping_fee: '14.90'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-31'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1101
+  customer_id: C-05
+  currency: MXN
+  items:
+  - name: Fictional coffee
+    price: '890.00'
+  shipping_fee: '99.00'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-26'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1102
+  customer_id: C-05
+  currency: MXN
+  items:
+  - name: Fictional coffee
+    price: '890.00'
+  shipping_fee: '99.00'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-03'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1103
+  customer_id: C-05
+  currency: MXN
+  items:
+  - name: Fictional coffee
+    price: '890.00'
+  shipping_fee: '99.00'
+  status: in_transit
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-10-23'
+  delivered_at: null
+  carrier_status: in_transit
+  subscription_id: null
+- order_id: GN-1104
+  customer_id: C-05
+  currency: MXN
+  items:
+  - name: Fictional coffee
+    price: '890.00'
+  shipping_fee: '99.00'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-25'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1105
+  customer_id: C-05
+  currency: MXN
+  items:
+  - name: Fictional coffee
+    price: '890.00'
+  shipping_fee: '99.00'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-02'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1106
+  customer_id: C-05
+  currency: MXN
+  items:
+  - name: Fictional coffee
+    price: '1500.01'
+  shipping_fee: '0.00'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-31'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1107
+  customer_id: C-05
+  currency: MXN
+  items:
+  - name: Fictional coffee
+    price: '890.00'
+  shipping_fee: '99.00'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-31'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1108
+  customer_id: C-05
+  currency: MXN
+  items:
+  - name: Fictional coffee
+    price: '890.00'
+  shipping_fee: '99.00'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-31'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1109
+  customer_id: C-06
+  currency: MXN
+  items:
+  - name: Fictional coffee
+    price: '890.00'
+  shipping_fee: '99.00'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-31'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1110
+  customer_id: C-07
+  currency: MXN
+  items:
+  - name: Fictional coffee
+    price: '890.00'
+  shipping_fee: '99.00'
+  status: processing
+  shipped_at: null
+  estimated_delivery: '2026-11-07'
+  delivered_at: null
+  carrier_status: in_transit
+  subscription_id: SUB-es
+- order_id: GN-1111
+  customer_id: C-07
+  currency: MXN
+  items:
+  - name: Fictional coffee
+    price: '890.00'
+  shipping_fee: '99.00'
+  status: in_transit
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-10-24'
+  delivered_at: null
+  carrier_status: in_transit
+  subscription_id: SUB-es
+- order_id: GN-1112
+  customer_id: C-08
+  currency: MXN
+  items:
+  - name: Fictional coffee
+    price: '890.00'
+  shipping_fee: '99.00'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-31'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1201
+  customer_id: C-09
+  currency: USD
+  items:
+  - name: Fictional coffee
+    price: '35.00'
+  shipping_fee: '5.00'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-26'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1202
+  customer_id: C-09
+  currency: USD
+  items:
+  - name: Fictional coffee
+    price: '35.00'
+  shipping_fee: '5.00'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-03'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1203
+  customer_id: C-09
+  currency: USD
+  items:
+  - name: Fictional coffee
+    price: '35.00'
+  shipping_fee: '5.00'
+  status: in_transit
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-10-23'
+  delivered_at: null
+  carrier_status: in_transit
+  subscription_id: null
+- order_id: GN-1204
+  customer_id: C-09
+  currency: USD
+  items:
+  - name: Fictional coffee
+    price: '35.00'
+  shipping_fee: '5.00'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-25'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1205
+  customer_id: C-09
+  currency: USD
+  items:
+  - name: Fictional coffee
+    price: '35.00'
+  shipping_fee: '5.00'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-02'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1206
+  customer_id: C-09
+  currency: USD
+  items:
+  - name: Fictional coffee
+    price: '80.01'
+  shipping_fee: '0.00'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-31'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1207
+  customer_id: C-09
+  currency: USD
+  items:
+  - name: Fictional coffee
+    price: '35.00'
+  shipping_fee: '5.00'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-31'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1208
+  customer_id: C-09
+  currency: USD
+  items:
+  - name: Fictional coffee
+    price: '35.00'
+  shipping_fee: '5.00'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-31'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1209
+  customer_id: C-10
+  currency: USD
+  items:
+  - name: Fictional coffee
+    price: '35.00'
+  shipping_fee: '5.00'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-31'
+  carrier_status: delivered
+  subscription_id: null
+- order_id: GN-1210
+  customer_id: C-11
+  currency: USD
+  items:
+  - name: Fictional coffee
+    price: '35.00'
+  shipping_fee: '5.00'
+  status: processing
+  shipped_at: null
+  estimated_delivery: '2026-11-07'
+  delivered_at: null
+  carrier_status: in_transit
+  subscription_id: SUB-en
+- order_id: GN-1211
+  customer_id: C-11
+  currency: USD
+  items:
+  - name: Fictional coffee
+    price: '35.00'
+  shipping_fee: '5.00'
+  status: in_transit
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-10-24'
+  delivered_at: null
+  carrier_status: in_transit
+  subscription_id: SUB-en
+- order_id: GN-1212
+  customer_id: C-12
+  currency: USD
+  items:
+  - name: Fictional coffee
+    price: '35.00'
+  shipping_fee: '5.00'
+  status: delivered
+  shipped_at: '2026-09-18'
+  estimated_delivery: '2026-09-28'
+  delivered_at: '2026-10-31'
+  carrier_status: delivered
+  subscription_id: null
