@@ -1,14 +1,32 @@
 # policydesk
 
-**Support tickets in Portuguese, Spanish and English, where code decides the refund and synthetic responses explain it.**
+**Policy decisions in Portuguese, Spanish and English, with an offline sandbox and opt-in local OpenAI testing.**
 
-An offline support-policy prototype: deterministic code decides the outcome from a versioned fictional policy, checks the reply, and routes unsupported requests to a person. Refund and cancellation proposals wait for human approval bound to the exact action. Approval records authorization only; nothing executes.
+**OpenAI integration implemented; live verification and empirical results not yet performed.**
 
-**Synthetic prototype:** extraction and reply fixtures are authored, not recorded OpenAI responses. The browser sandbox uses fictional facts and localized templates. No model calls, real customer data or financial actions are involved.
+A support-policy prototype: deterministic code decides the outcome from a versioned fictional policy, checks the reply, and routes unsupported requests to a person. Refund and cancellation proposals wait for human approval bound to the exact action. Approval records authorization only; nothing executes.
+
+**Public demo:** extraction and reply fixtures are authored, not recorded OpenAI responses. GitHub Pages uses fictional facts and localized templates and makes no model calls. The optional local app uses your key only after you explicitly start a run. No real customer data or financial action is involved.
 
 [Open the policy sandbox](https://fishraposo.github.io/policydesk/) · [Case study](docs/CASE_STUDY.md) · [Architecture](docs/ARCHITECTURE.md)
 
 ![Actual sandbox: a proposed refund, simulated approval, then an ownership refusal. Fictional data and synthetic responses.](docs/media/policydesk-proof.gif)
+
+## Try OpenAI locally with your own key
+
+Install [uv](https://docs.astral.sh/uv/), then launch the packaged app without Node.js:
+
+```bash
+uv tool run --python 3.12 --from "policydesk[live] @ https://github.com/FishRaposo/policydesk/releases/download/v0.2.0-prototype.1/policydesk-0.2.0.dev1-py3-none-any.whl" policydesk serve --enable-live
+```
+
+Enter your key in the **hidden terminal prompt**, then open http://127.0.0.1:8765/policydesk/. You can instead set `OPENAI_API_KEY` in your own local environment. Startup makes no OpenAI request; each ticket or comparison requires an explicit Run action. Your key never enters the browser, repository, reports, or recordings.
+
+Choose fictional facts, a ticket, model and USD allowance. Inspect policy decisions, validators, usage, estimated cost and request/workflow durations. The paired comparison runs nine author-known development cases three times against a single-call baseline. It is not an independent model benchmark.
+
+Defaults: GPT-6 Luna, low reasoning, Standard processing, $0.05 per ticket and $1.00 per comparison/session. Limits and prices are visible before running. These are application spending guards, not guaranteed billing caps. Cancel stops new requests; it cannot reverse provider charges. Missing usage retains a reservation and requires acknowledgement.
+
+[Local setup, CLI, privacy and measurement details](docs/OPENAI.md). Recruiters need their own API billing and model access; neither has been tested here. No API call, authentic provider recording, cost/latency result or baseline improvement is claimed by this release.
 
 ## Quickstart (no API key)
 
@@ -67,23 +85,27 @@ flowchart LR
     A --> N[No external execution]
 ```
 
-The model boundary is isolated in `openai_client.py`, but a real SDK adapter is deferred. Both `live` and `record` are disabled. The CLI runs the real policy, validators, SQLite audit and approval binding; it replaces extraction/drafting with integrity-checked synthetic fixtures.
+Synthetic replay remains isolated in `openai_client.py` and stays the default. The optional local SDK workflow uses strict Responses schemas and scoped read-only tools, deterministic policy, the same validators and one repair, then a safe handoff. Recording is opt-in and separate from synthetic fixtures. The SDK and local HTTP/browser paths were tested with fake credentials and intercepted transport only.
 
 The browser has a second policy implementation using integer minor units. Shared observations and independent boundary tests compare it with Python's Decimal implementation. Edited browser replies use templates; Python language detection is not claimed for those edits.
 
 ## Verification
 
 ```bash
-uv run ruff check .
-uv run pyright
-uv run pytest
-uv run python scripts/verify_artifacts.py
-uv run python scripts/offline_check.py
-cd web
-npm test
-npm run build
-npm run test:browser
+uv sync --locked --extra live
+uv run --extra live ruff check .
+uv run --extra live pyright
+uv run --extra live pytest
+uv run --extra live python scripts/verify_artifacts.py
+uv run --extra live python scripts/offline_check.py
+npm test --prefix web
+npm run build --prefix web
+uv run --extra live python scripts/package_web.py
+npm run test:browser --prefix web
+npm run test:local --prefix web
 ```
+
+All provider tests use fake credentials and intercepted SDK HTTP; they never validate an account or contact the OpenAI API. The local-browser suite runs the real loopback server against that intercepted SDK transport. Release verification also runs it from the installed wheel.
 
 The checks cover return windows, refund limits, ownership isolation, compound cancellation/refund actions, malformed replay data, one repair then handoff, stale/idempotent authorization, report reproduction, browser parity, keyboard use and responsive layouts. See [technical operations](docs/OPERATIONS.md), [evaluation method](docs/EVALS.md) and [build log](docs/BUILD-LOG.md).
 
@@ -94,7 +116,7 @@ The checks cover return windows, refund limits, ownership isolation, compound ca
 - Phrase-based promise detection, money parsing and language identification have finite coverage. Human review of the evaluation set has not occurred.
 - Browser fixtures are public sample data. Ownership controls and CLI customer/operator flags are local simulation inputs, not authentication.
 - Approvals record authorization only. No refund, subscription change or customer message executes.
-- Real API recordings, spend controls, empirical baseline comparison, a live HTTP service and arbitrary-text browser inference are deferred.
+- Genuine API acceptance, authentic recordings, empirical model/baseline results and independent human calibration have not been performed. Local live transport, recording, spending guards, free-text ticket processing and comparison are implemented for recruiters to run themselves; there is no remotely hosted backend.
 
 ## Part of the stack
 

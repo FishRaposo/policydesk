@@ -1,6 +1,6 @@
 {
   "name": "policydesk-sandbox",
-  "version": "0.1.0-prototype.1",
+  "version": "0.2.0-prototype.1",
   "private": true,
   "type": "module",
   "engines": {
@@ -13,6 +13,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:browser": "playwright test",
+    "test:local": "playwright test --config playwright.server.config.ts",
     "proof": "node scripts/capture-proof.mjs"
   },
   "devDependencies": {
@@ -20,6 +21,6 @@
     "@types/node": "^24.19.2",
     "typescript": "~5.9.3",
     "vite": "^8.0.0",
-    "vitest": "^4.0.0"
+    "vitest": "^4.1.12"
   }
 }

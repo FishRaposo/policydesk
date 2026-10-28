@@ -32,13 +32,20 @@ jobs:
       - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
         with:
           version: '0.13.5'
-      - run: uv sync --locked
+      - run: uv sync --locked --extra live
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+      - run: npm ci --prefix web
+      - run: npm run build --prefix web
+      - run: uv run python scripts/package_web.py
       - run: uv run ruff check .
       - run: uv run pyright
       - run: uv run pytest
       - run: uv run python scripts/verify_artifacts.py
       - run: uv run python scripts/offline_check.py
       - run: uv build
+      - run: uv run python scripts/check_wheel.py
 
   browser:
     runs-on: ubuntu-latest
@@ -52,11 +59,25 @@ jobs:
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: '24'
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        with:
+          version: '0.13.5'
+      - run: uv sync --locked --extra live --project ..
       - run: npm ci
       - run: npm test
       - run: npm run build
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser
+      - run: uv run --project .. python ../scripts/package_web.py
+      - run: uv build --project .. --out-dir ../dist
+      - run: uv run --project .. python ../scripts/check_wheel.py
+      - run: npm run test:local
+        env:
+          POLICYDESK_TEST_PYTHON: ${{ github.workspace }}/.runtime/wheel-installed/bin/python
+          POLICYDESK_TEST_EXPECT_INSTALLED: '1'
 
   secrets:
     runs-on: ubuntu-latest

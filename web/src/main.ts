@@ -1,4 +1,5 @@
 import './style.css';
+import {mountLocalRuntime} from './local';
 import rawBundle from './generated/bundle.json';
 import { major, minor, policy, TODAY } from './policy';
 import { Sandbox } from './state';
@@ -178,3 +179,4 @@ function render(): void {
   renderResults();
 }
 render();
+void mountLocalRuntime();

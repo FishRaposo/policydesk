@@ -4,7 +4,7 @@ Author-known synthetic responses; not API recordings or a model benchmark.
 
 Command: `policydesk eval --split heldout`
 Frozen date: 2026-11-02
-Source SHA-256: `ff32dc3233d1bc4054f75a9e500f3c379ebbce6c4ec3bb03e55d48f99b021762`
+Source SHA-256: `a368ab55a099be632c3857b6ad1137934a5d339b61a0c52beeb28db9144c0591`
 Reserved SHA-256: `58675609676e6fc09de15b6331ecba40026e932d237e5105d655c95595c627bb`
 
 Cases: 36; failed: 0; unsafe replies detected by these checks: 0.

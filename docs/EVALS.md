@@ -13,7 +13,7 @@ Every label is agent_drafted until Fish actually reviews it. Human review has no
 Run: uv run policydesk eval --split dev
 Run: uv run policydesk eval --split heldout
 
-Reports check the complete labeled outcome, proposed action list and clause IDs. Validators run against the authored label, not just the pipeline's own decision. A system that hands off all tickets fails expected approvals and denials. Repair/handoff cases are development fixtures. Baseline comparison raises an explicit unavailable error. No scripted unsafe baseline is presented as a model result.
+Reports check the complete labeled outcome, proposed action list and clause IDs. Validators run against the authored label, not just the pipeline's own decision. A system that hands off all tickets fails expected approvals and denials. Repair/handoff cases are development fixtures. The original synthetic evaluator still rejects its legacy baseline option. The separate recruiter-run benchmark supports an opt-in one-call baseline comparison; its setup is verified with intercepted SDK HTTP only. No scripted unsafe baseline is presented as a model result.
 
 Reports include per-case evidence, source SHA-256, reserved-data hash, label-source counts and detected violations. JSON and Markdown output is deterministic and has no run timestamp. Exact reproduction is checked by scripts/verify_artifacts.py. Source hashes bind package Python files and packaged YAML/JSON/JSONL/hash data. Reserved dataset integrity uses original bytes.
 
@@ -23,4 +23,9 @@ API cost, model latency, cached input share and real baseline measurements remai
 
 ## Future empirical milestone
 
-Authorize a separately capped run, implement and verify the SDK adapter/budget controls, freeze prompts and source, obtain genuinely fresh independently reviewed cases, capture authentic provider responses for both systems, preserve failures, measure actual usage and latency, then commission public-copy/canon review. Do not relabel synthetic cassettes as recordings.
+For genuine empirical evidence, authorize a separately capped run, exercise the implemented SDK adapter and spending guards against the API, freeze prompts and source, obtain genuinely fresh independently reviewed cases, capture authentic provider responses for both systems, preserve failures, measure actual usage and latency, then commission public-copy/canon review. Do not relabel synthetic cassettes as recordings.
+
+
+## Local OpenAI comparison (v0.2)
+
+OpenAI integration implemented; live verification and empirical results not yet performed. The separate benchmark selects nine declared development cases, repeats three times and alternates arm order. Both systems share settings and customer-authorized facts, with tools in the pipeline and direct fact preload in the one-call baseline. The common primary grade uses gold outcome/actions/clauses and bounded reply checks; extraction is a separate diagnostic. Failures and incomplete pairs stay in denominators and reports. No live results, actual API costs/latencies, independent-human labels or measured baseline improvement exist from implementation. See [OPENAI.md](OPENAI.md).

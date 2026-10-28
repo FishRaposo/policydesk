@@ -4,13 +4,13 @@
   "authorization": {
     "type": "direct_user_instruction",
     "date": "2026-10-28",
-    "quote": "No, just roll with the current one",
-    "scope": "PolicyDesk existing wording with factual prototype corrections and portfolio integration"
+    "quote": "PLEASE IMPLEMENT THIS PLAN:",
+    "scope": "Accepted PolicyDesk recruiter-run OpenAI integration and v0.2.0-prototype.1 delivery; required truthful unverified-live status; no OpenAI API requests in implementation/CI/release verification"
   },
   "finalized_files": {
-    "README.md": "684e39166b73ab4c871b6434f775e93a036dbafd59b504cc5ec6dcf5c0639962",
-    "docs/CASE_STUDY.md": "c147d0ec5922da5bce0e26f7d0fa270fbdb2f740ece8b6869163a5bf84ff0560"
+    "README.md": "abe9405fa7dd06dcebafac80089a75cc1a73ce418d2a2ff8193147dd59aba242",
+    "docs/CASE_STUDY.md": "31be78ca97914eac1019b28b9056c4dbc7cce8ce1e0b7382a325a5126f4e5d6f"
   },
-  "repository_description": "Offline policy sandbox with deterministic refund rules, synthetic replay, and simulated human approvals.",
-  "target_release": "v0.1.0-prototype.1"
+  "repository_description": "Policy sandbox with deterministic rules, an offline demo, and opt-in local OpenAI testing.",
+  "target_release": "v0.2.0-prototype.1"
 }

@@ -1,6 +1,6 @@
 # Domain: Grão Norte (fictional)
 
-Prototype status: synthetic replay only; no model or real customer system is connected. The policy source is `src/policydesk/data/policy.yaml`; orders are in `src/policydesk/data/orders.yaml`. Original seed: `seed/DOMAIN.md`.
+Prototype status: synthetic replay is the default; an opt-in local OpenAI adapter is implemented but has not been run against the API. No real customer system is connected. The policy source is `src/policydesk/data/policy.yaml`; orders are in `src/policydesk/data/orders.yaml`. Original seed: `seed/DOMAIN.md`.
 
 **Grão Norte is an invented coffee-subscription startup.** It ships beans and gear from São Paulo to customers in Brazil, Mexico and the United States, and answers support in Portuguese, Spanish and English. Every customer, order and clause here is made up. The policy is written to exercise the pipeline, not to describe consumer law anywhere.
 

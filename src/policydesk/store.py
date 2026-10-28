@@ -174,3 +174,10 @@ class Store:
             {**dict(row), "payload": json.loads(row["payload"])}
             for row in self.connection.execute("SELECT * FROM audit_log ORDER BY id")
         ]
+
+    def invalidate_authorizations(self) -> None:
+        """Persist workspace revocation so every entrypoint, including CLI, sees it."""
+        with self.connection:
+            self.connection.execute(
+                "UPDATE pending_actions SET status='stale' WHERE status IN ('pending','approved')"
+            )

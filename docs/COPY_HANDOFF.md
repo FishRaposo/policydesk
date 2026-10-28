@@ -1,4 +1,12 @@
-# Public-copy handoff — Claude
+# Public-copy authority and technical handoff
+
+## v0.2 recruiter milestone
+
+The owner explicitly requested implementation and delivery of the recruiter-run OpenAI plan with the required wording: **OpenAI integration implemented; live verification and empirical results not yet performed.** Existing presentation remains under the prior owner override, with factual capability/setup corrections only. README/case-study hashes in config/publication.json bind the exact finalized files. No Claude review is claimed; identity/canon claims are unchanged.
+
+The SDK, local server/browser, spending guards and paired harness have mocked contract evidence only. There are no genuine API results, authentic recordings, account-access checks, measured model performance, actual API costs/latencies or independent-human labels from this implementation. Public Pages stays synthetic; recruiters install the local app, provide their own key in the terminal and explicitly initiate their own runs.
+
+# Historical v0.1 handoff — optional Claude review
 
 Current status (2026-10-28): the owner answered "No, just roll with the current one" when asked for Claude-finalized copy. The existing wording was retained where accurate, unsupported live-model/baseline statements and placeholders were corrected, and README/case-study hashes were recorded as owner_override. No Claude review is claimed. This explicit instruction supersedes the waiting dependency for the current prototype release.
 

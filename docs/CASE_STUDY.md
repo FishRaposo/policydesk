@@ -1,4 +1,8 @@
-# PolicyDesk: code decides, synthetic responses explain
+# PolicyDesk: code decides, responses explain
+
+**OpenAI integration implemented; live verification and empirical results not yet performed.**
+
+The v0.2 milestone adds a local, terminal-key OpenAI adapter and paired measurement harness. Its API contracts, spend accounting, loopback server, browser workflow and packaged install are checked with fake credentials and intercepted SDK transport. The evidence below remains the authored synthetic prototype evidence; it is not a real-model result. See [local integration details](OPENAI.md).
 
 ## Problem
 

@@ -23,3 +23,14 @@ User authorization for an explicit spending cap; suitable existing API credit an
 ## Local delivery constraints
 
 Sandboxed GitHub CLI authentication initially failed because network access was restricted. Native verification on 2026-10-28 confirmed the existing FishRaposo authentication is valid; no credential refresh or disclosure was needed. Connected GitHub tools support reading and Git object writes, but expose no repository-creation or release/settings operation; native gh is the available fallback. The owner explicitly waived the Claude wait for this prototype on 2026-10-28 and authorized using existing wording with factual corrections. config/publication.json records owner_override and exact finalized-copy hashes; this is not Claude review. The hub github/ trees are snapshots, not source repositories.
+
+
+## Recruiter-run integration — researched 2026-10-28
+
+Official sources revisited for the accepted v0.2 plan: authentication, Structured Outputs, function calling, Python Responses reference, token counting, pricing, prompt caching, data controls and evaluation guidance (linked in OPENAI.md). They support a server-held API key, strict schema/tool continuations, stateless responses and usage-based estimates. Current cache-write tokens are separate from ordinary/cached reads; 30-minute writes use a total rate of 1.25 times ordinary input, not an added surcharge. Exact dated Standard rates are versioned under packaged model_pricing.json. Published model availability does not establish access for this account or any recruiter.
+
+Local installed SDK2.54.0 source inspection verified supported counting/cache/usage fields and revealed ambient credential/header inference. API/admin/webhook arguments are explicit; inferred custom headers are discarded before requests and library DEBUG logging is suppressed. The internal mapping boundary is regression-tested and the SDK version is pinned. No environment credential value or API account was inspected by the implementation agents, and no real API request occurred.
+
+Independent reviews found and reproduced mutable capture histories, ambient authorization override, Windows asynchronous test-network bypass and nonpersistent workspace revocation. Bounded fixes and fake-only regressions verify those paths. This is implementation/contract evidence, not empirical API acceptance. The public sandbox remains offline; a separately installed loopback process is the only live execution surface.
+
+An npm audit on 2026-10-28 found two moderate Vitest mocker development-server advisories (GHSA-qxg6-89mg-rqv8 and GHSA-xp26-3454-mjgp), patched in4.1.12. The same-major patch was installed; the subsequent audit reported0vulnerabilities. This is the observed registry audit, not a general security certification.
