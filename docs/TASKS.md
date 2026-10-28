@@ -43,7 +43,9 @@ Genuine API acceptance, authentic recordings, empirical baseline/model and cost/
 - [x] Loopback Host/Origin/CSRF, one active job, idempotence, terminal-only key and durable stale/cancel authorization tests.
 - [x] Local browser flow, report download, recording provenance, keyboard and three viewport widths tested through actual ASGI/SDK mock HTTP.
 - [x] Final complete-suite and independent whole-branch review.
-- [ ] Final bundled wheel installed without Node, clean-clone reproduction and hosted Windows/Linux/Chromium checks.
-- [ ] v0.2.0-prototype.1 prerelease, final Pages static/local-instructions verification and hub handoff.
+- [x] Final bundled wheel installed without Node, clean-clone reproduction and hosted Windows/Linux/Chromium checks.
+- [x] v0.2.0-prototype.1 prerelease, final Pages static/local-instructions verification and hub handoff.
+
+Observed 2026-10-28: release revision cc86638ca98b5fdb8d5e0397b57b85f6b6f32317; [main checks and Pages deployment](https://github.com/FishRaposo/policydesk/actions/runs/40637871352) passed all jobs; [prerelease](https://github.com/FishRaposo/policydesk/releases/tag/v0.2.0-prototype.1) contains the tested bundled wheel and source archive with matching uploaded/downloaded SHA-256 digests. Fresh clone passed 226 Python tests, reproducible exports, outbound-denied replay, static23/local8 browser checks and retained clean Git status. Hosted Pages served only its four static resources; the unverified-live status and installation link were visible at 390/768/1440. Hub tracking is FTH-038/D-026; no actual OpenAI key or API request was used.
 
 OpenAI integration implemented; live verification and empirical results not yet performed. None of these gates permit agents, CI or release verification to use an actual key or request the OpenAI API.

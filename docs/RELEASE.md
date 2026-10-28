@@ -14,3 +14,11 @@ Target: FishRaposo/policydesk, tag `v0.2.0-prototype.1`, Python metadata `0.2.0.
 8. Record exact hosted/source/package/browser observations and limitations in the build log and hub handoff. Update applicable task/stamp/manifest records while preserving unrelated work and identity/canon ownership.
 
 Never print/store a token or actual API key. Runtime files, reports, captures and test data stay ignored. API account access, real costs/latency, empirical baseline improvements and independent human evaluation remain unverified until a separately initiated genuine run exists.
+
+## Observed v0.2 delivery — 2026-10-28
+
+- Release source: `cc86638ca98b5fdb8d5e0397b57b85f6b6f32317`; [main CI and deployment](https://github.com/FishRaposo/policydesk/actions/runs/40637871352) passed every job.
+- [Prototype prerelease](https://github.com/FishRaposo/policydesk/releases/tag/v0.2.0-prototype.1), including public wheel/source download URLs, prerelease flag and exact tag target verified.
+- Wheel SHA-256: `faee9312e635d7fbb2d19b0cdf572e7eec22e0c6a9fbd02067bc584616ba81be`.
+- Source archive SHA-256: `773552b87a1c2a116416df3014b2329143c3b018a2902d33825f7898e5af6b76`.
+- Uploaded GitHub digests and freshly downloaded files match. Pages UI/setup/status/layouts verified; browser observed no backend, localhost or OpenAI request. Verification used only fake-key SDK transport and synthetic data.
