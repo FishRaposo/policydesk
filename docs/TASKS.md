@@ -14,18 +14,20 @@ The owner-approved plan of 2026-10-28 supersedes the original M0-only and stable
 - [x] Static TypeScript policy sandbox and Python/browser comparison data.
 - [x] Editing invalidates approval and clears replay provenance.
 - [x] Local browser language, offline, keyboard and target-width checks.
-- [ ] Final integrated checks and independent branch review.
-- [ ] Committed reproducible proof media, reports and clean-clone/wheel checks.
+- [x] Final integrated checks and independent branch review.
+- [x] Committed reproducible proof media, reports and clean-clone/wheel checks.
 
 ## Publication (separate from engineering readiness)
 
-- [ ] Claude finalizes README presentation, case study, repository description and profile/site text from measured technical evidence. The current README is an unchanged, unpublishable seed draft.
-- [ ] Release gate verifies finalized copy, no placeholders, lockfiles, MIT license, reproducible artifacts and secret scan.
-- [ ] Dedicated FishRaposo/policydesk repository and hosted CI observed.
-- [ ] Repository public; GitHub Pages serves the verified build at /policydesk/.
-- [ ] v0.1.0-prototype.1 prerelease and repository metadata observed.
-- [ ] Actual profile/site repositories updated with approved content; hub snapshots refreshed afterward.
-- [ ] PolicyDesk pin replaces agenttrace; agenttrace remains in catalog.
+- [x] Existing wording finalized with factual prototype corrections under the owner's explicit 2026-10-28 override. Exact README/case-study hashes and owner authority are recorded in config/publication.json. This is not Claude review.
+- [x] Release gate verifies finalized copy, no placeholders, lockfiles, MIT license, reproducible artifacts and secret scan.
+- [x] Dedicated FishRaposo/policydesk repository and hosted CI observed.
+- [x] Repository public; GitHub Pages serves the verified build at /policydesk/.
+- [x] v0.1.0-prototype.1 prerelease and repository metadata observed.
+- [x] Actual profile/site repositories updated with approved content; hub snapshots refreshed afterward.
+- [x] PolicyDesk pin replaces agenttrace; agenttrace remains in catalog.
+
+Observed 2026-10-28: release revision b84059eff5ec8997e98424d02a23387f673d8c64; [main CI and deployment](https://github.com/FishRaposo/policydesk/actions/runs/40630517735); [prerelease](https://github.com/FishRaposo/policydesk/releases/tag/v0.1.0-prototype.1); profile source 8099e83; site source bbfde9e and successful deployment run 40630712365. Live sandbox and portfolio interactions/layouts passed browser checks. The persisted six-pin list places PolicyDesk fourth, preserving the other five pins.
 
 ## Deferred
 
