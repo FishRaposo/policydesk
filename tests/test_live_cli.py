@@ -1,5 +1,6 @@
 """CLI consent and key handling use fake values; no API requests."""
 
+from click import unstyle
 from typer.testing import CliRunner
 
 from policydesk import cli
@@ -8,8 +9,8 @@ from policydesk import cli
 def test_recruiter_launcher_is_discoverable():
     result = CliRunner().invoke(cli.app, ["serve", "--help"])
     assert result.exit_code == 0, result.output
-    assert "--enable-live" in result.output
-    assert "--api-key" not in result.output
+    assert "--enable-live" in unstyle(result.output)
+    assert "--api-key" not in unstyle(result.output)
 
 
 def test_live_consent_precedes_key_access(monkeypatch):
@@ -19,7 +20,7 @@ def test_live_consent_precedes_key_access(monkeypatch):
         cli.app, ["run", "Fictional request", "--customer", "C-01", "--mode", "live"]
     )
     assert result.exit_code == 2
-    assert "confirm-spend" in result.output
+    assert "confirm-spend" in unstyle(result.output)
     assert accessed == []
 
 
