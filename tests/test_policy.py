@@ -166,6 +166,16 @@ def test_shipping_information_is_explicit():
 
 
 @pytest.mark.parametrize(
+    "language,status_word", [("pt", "entregue"), ("es", "entregado"), ("en", "delivered")]
+)
+def test_shipping_reply_includes_the_actual_carrier_status(language, status_word):
+    from policydesk.replies import render
+
+    decision = evaluate(extraction(intent="shipping_status", claim="none"), order(), "C-01", TODAY)
+    assert status_word in render(decision, language).body
+
+
+@pytest.mark.parametrize(
     "updates",
     [
         {"intent": "other", "claim": "none"},
@@ -178,7 +188,10 @@ def test_unsupported_or_unresolved_hands_off(updates):
     assert evaluate(extraction(**updates), order(), "C-01", TODAY).outcome == "needs_human"
 
 
-@pytest.mark.parametrize("value", ["-0.01", "NaN", "Infinity", "1000000001", 1.1, True, "abc"])
+@pytest.mark.parametrize(
+    "value",
+    ["-0.01", "NaN", "Infinity", "1000000001", 1.1, True, "abc", "1e2", "+1", " 1.20 ", "-0.00"],
+)
 def test_invalid_money_is_rejected(value):
     with pytest.raises(ValueError):
         money(value)

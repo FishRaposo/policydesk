@@ -6,7 +6,7 @@ from typing import Any
 from pydantic import ValidationError
 
 from .models import Decision, DraftReply, Extraction, Order, Ticket, Violation
-from .openai_client import ReplayClient, request
+from .openai_client import ResponseClient, request
 from .policy import evaluate
 from .replies import render
 from .resources import digest
@@ -14,7 +14,7 @@ from .store import Store
 from .validators import check
 
 
-def run(ticket: Ticket, store: Store, client: ReplayClient, today: date) -> dict[str, Any]:
+def run(ticket: Ticket, store: Store, client: ResponseClient, today: date) -> dict[str, Any]:
     ticket_id = digest({"ticket": ticket.model_dump(mode="json"), "today": today.isoformat()})[:24]
     extract_request = request(
         "extract", ticket=ticket.model_dump(mode="json"), today=today.isoformat()

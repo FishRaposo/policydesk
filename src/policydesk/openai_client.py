@@ -3,7 +3,7 @@
 import json
 import os
 from pathlib import Path
-from typing import Any
+from typing import Any, Protocol
 
 from .resources import DATA, digest
 
@@ -18,6 +18,10 @@ class CassetteInvalid(RuntimeError):
 
 class NetworkModeDisabled(RuntimeError):
     pass
+
+
+class ResponseClient(Protocol):
+    def call(self, request: dict[str, Any], /) -> dict[str, Any]: ...
 
 
 class ReplayClient:

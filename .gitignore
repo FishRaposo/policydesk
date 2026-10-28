@@ -14,3 +14,4 @@ web/test-results/
 web/playwright-report/
 *.egg-info/
 dist/
+pytest-cache-files-*/

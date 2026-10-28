@@ -4,6 +4,9 @@ from .models import Decision, DraftReply, Language
 
 TEXT = {
     "en": {
+        "carrier_delivered": "Carrier status: delivered.",
+        "carrier_in_transit": "Carrier status: in transit.",
+        "carrier_exception": "Carrier status: exception.",
         "approve": "Your request meets the fictional policy. The proposed action is pending human confirmation; nothing has been executed.",
         "deny": "Your request falls outside the fictional policy window. No refund has been approved. You can ask a support person to review the request.",
         "needs_human": "A support person needs to review your request before any action can be authorized. We cannot confirm a refund or share additional order information.",
@@ -12,6 +15,9 @@ TEXT = {
         "cancel": "Subscription cancellation is proposed for the next cycle and is pending human confirmation.",
     },
     "pt": {
+        "carrier_delivered": "Status da transportadora: entregue.",
+        "carrier_in_transit": "Status da transportadora: em trânsito.",
+        "carrier_exception": "Status da transportadora: ocorrência.",
         "approve": "Sua solicitação atende à política fictícia. A ação proposta aguarda confirmação humana; nenhuma ação foi executada.",
         "deny": "Sua solicitação está fora do prazo da política fictícia. Nenhum reembolso foi autorizado. Você pode pedir a uma pessoa do suporte que revise a solicitação.",
         "needs_human": "Uma pessoa do suporte precisa avaliar sua solicitação antes de autorizar qualquer ação. Não podemos confirmar um reembolso nem compartilhar informações adicionais do pedido.",
@@ -20,6 +26,9 @@ TEXT = {
         "cancel": "O cancelamento da assinatura foi proposto para o próximo ciclo e aguarda confirmação humana.",
     },
     "es": {
+        "carrier_delivered": "Estado del transportista: entregado.",
+        "carrier_in_transit": "Estado del transportista: en tránsito.",
+        "carrier_exception": "Estado del transportista: incidencia.",
         "approve": "Su solicitud cumple la política ficticia. La acción propuesta está pendiente de confirmación humana; no se ha ejecutado ninguna acción.",
         "deny": "Su solicitud está fuera del plazo de la política ficticia. No se ha autorizado ningún reembolso. Puede pedir a una persona de soporte que revise la solicitud.",
         "needs_human": "Una persona de soporte debe revisar su solicitud antes de autorizar cualquier acción. No podemos confirmar un reembolso ni compartir información adicional del pedido.",
@@ -41,6 +50,10 @@ def next_step(decision: Decision) -> str:
 def render(decision: Decision, language: Language) -> DraftReply:
     text = TEXT[language]
     body = text[decision.outcome]
+    if decision.outcome == "information":
+        for reason in decision.reasons:
+            if reason.startswith("carrier_") and reason in text:
+                body += " " + text[reason]
     if decision.refund:
         body += " " + text["refund"].format(
             currency=decision.refund.currency, amount=f"{decision.refund.amount:.2f}"

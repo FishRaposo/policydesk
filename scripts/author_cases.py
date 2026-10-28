@@ -300,7 +300,7 @@ def main() -> None:
     ).encode("utf-8")
     (ROOT / "cases/heldout.jsonl").write_bytes(heldout)
     (ROOT / "cases/heldout.sha256").write_text(
-        hashlib.sha256(heldout).hexdigest() + "\n", encoding="utf-8"
+        hashlib.sha256(heldout).hexdigest() + "\n", encoding="utf-8", newline="\n"
     )
     (ROOT / "cases/dev.jsonl").write_text(
         "".join(json.dumps(c, ensure_ascii=False, sort_keys=True) + "\n" for c in cases["dev"]),

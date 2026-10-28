@@ -1,5 +1,6 @@
 """Validated application contracts. Money crosses JSON boundaries as strings."""
 
+import re
 from datetime import date
 from decimal import ROUND_HALF_UP, Decimal, InvalidOperation
 from typing import Annotated, Literal
@@ -17,6 +18,10 @@ TODAY = date(2026, 11, 2)
 def money(value: object) -> Decimal:
     if isinstance(value, (float, bool)) or not isinstance(value, (str, Decimal, int)):
         raise ValueError("Money must be a decimal string")
+    if isinstance(value, str) and (
+        len(value) > 40 or re.fullmatch(r"[0-9]+(?:\.[0-9]+)?", value) is None
+    ):
+        raise ValueError("Use an unsigned plain decimal string without whitespace")
     try:
         number = Decimal(value)
         if not number.is_finite() or number < 0 or number > Decimal("1000000000"):

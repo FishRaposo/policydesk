@@ -148,3 +148,55 @@ def test_store_survives_restart(tmp_path):
         )
     finally:
         restarted.close()
+
+
+class SyntheticBoundary:
+    """Explicit provider double; policy, scoping, validation and storage remain real."""
+
+    def __init__(self, raw):
+        self.raw = raw
+
+    def call(self, payload):
+        if payload["step"] == "extract":
+            return self.raw
+        from policydesk.models import Decision
+        from policydesk.replies import render
+
+        return render(Decision.model_validate(payload["decision"]), payload["language"]).model_dump(
+            mode="json"
+        )
+
+
+def test_ambiguous_recent_orders_cannot_authorize(store):
+    case = cases()[0]
+    client = SyntheticBoundary(
+        {
+            "extraction": case["extraction"],
+            "tool_calls": [{"name": "list_recent_orders", "arguments": {}}],
+        }
+    )
+    result = run(ticket_for(case), store, client, TODAY)
+    assert result["decision"]["outcome"] == "needs_human"
+    assert result["pending_actions"] == []
+    assert {"step": "list_recent_orders", "status": "ambiguous"} in result["trace"]
+
+
+@pytest.mark.parametrize(
+    "calls",
+    [
+        [{"name": "lookup_order", "arguments": {"order_id": "GN-1007", "customer_id": "C-OTHER"}}],
+        [{"name": "refund", "arguments": {"order_id": "GN-1007"}}],
+        [{"name": "list_recent_orders", "arguments": {}}] * 4,
+    ],
+)
+def test_invalid_tool_arguments_or_excess_rounds_hand_off(store, calls):
+    case = cases()[0]
+    result = run(
+        ticket_for(case),
+        store,
+        SyntheticBoundary({"extraction": case["extraction"], "tool_calls": calls}),
+        TODAY,
+    )
+    assert result["decision"]["outcome"] == "needs_human"
+    assert result["pending_actions"] == []
+    assert result["decision"]["reasons"] == ["invalid_extraction"]
