@@ -32,6 +32,8 @@ export async function mountLocalRuntime():Promise<void> {
     const setup=el('section',undefined,'panel local-setup');setup.setAttribute('aria-label','Local OpenAI setup');
     setup.append(el('h2','Run OpenAI locally'),el('p',VERIFICATION_WARNING),el('p','Install the project with its live extra, then start the local server:'),el('code','policydesk serve --enable-live'),el('p','Enter your OpenAI key in the hidden terminal prompt. Open the loopback URL printed by the launcher. Choose fictional inputs and a budget, then explicitly run a ticket or paired comparison. The public page remains a synthetic sandbox.'));
     const instructions=el('a','Installation and launcher instructions','source-link');instructions.href='https://github.com/FishRaposo/policydesk#try-openai-locally-with-your-own-key';setup.append(instructions);
+    const evidence=el('p','Windows setup checks used fake keys; workflow checks used intercepted SDK transport. ');
+    const verification=el('a','Clean-install verification','source-link');verification.href='https://github.com/FishRaposo/policydesk/blob/main/docs/SETUP_VERIFICATION.md';evidence.append(verification);setup.append(evidence);
     document.querySelector('.workspace-footer')?.before(setup);return;
   }
   document.querySelector<HTMLElement>('.workspace')!.hidden=true;

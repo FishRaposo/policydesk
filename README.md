@@ -8,7 +8,7 @@ A support-policy prototype: deterministic code decides the outcome from a versio
 
 **Public demo:** extraction and reply fixtures are authored, not recorded OpenAI responses. GitHub Pages uses fictional facts and localized templates and makes no model calls. The optional local app uses your key only after you explicitly start a run. No real customer data or financial action is involved.
 
-[Open the policy sandbox](https://fishraposo.github.io/policydesk/) · [Case study](docs/CASE_STUDY.md) · [Architecture](docs/ARCHITECTURE.md)
+[Open the policy sandbox](https://fishraposo.github.io/policydesk/) · [Clean-install verification](docs/SETUP_VERIFICATION.md) · [Case study](docs/CASE_STUDY.md) · [Architecture](docs/ARCHITECTURE.md)
 
 ![Actual sandbox: a proposed refund, simulated approval, then an ownership refusal. Fictional data and synthetic responses.](docs/media/policydesk-proof.gif)
 

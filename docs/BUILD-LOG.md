@@ -4,6 +4,8 @@ How this repo was built with coding agents, session by session. One row per mean
 
 Recruiter setup follow-up: [published wheel verification](SETUP_VERIFICATION.md) records the actual Windows terminal/browser audit, separately from mocked model workflows.
 
+The same record is linked from README navigation and the public sandbox's local-setup panel. The panel identifies fake-key setup and intercepted SDK workflow checks; live verification and empirical results remain unperformed.
+
 | Date | Tool + model | Task | What it got right | What it got wrong / what I changed |
 |---|---|---|---|---|
 | 2026-10-28 | Codex | Python policy/replay/approval prototype, synthetic evaluation and TS sandbox | Built real deterministic code behind explicitly synthetic boundaries; kept financial actions unexecuted; produced source-bound reports and actual UI captures | Initial sandbox cache/network permissions failed; used native permissions and project-local caches. Corrected an authored test's mistaken reserved outcome totals before implementing the evaluator. |

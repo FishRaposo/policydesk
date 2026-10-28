@@ -57,5 +57,6 @@ OpenAI integration implemented; live verification and empirical results not yet 
 - [x] Packaged browser defaults, disclosures, keyboard/layouts and zero startup/navigation provider attempts.
 - [x] Nine installed-wheel SDK-intercepted browser checks, including active comparison cancellation and incomplete-result retention.
 - [x] Main-only README/guide corrections; published tag/assets/installer link unchanged.
+- [x] Link the record from README navigation and the public sandbox's local-setup panel, with fake-key/intercepted-workflow scope and the unverified-live statement.
 
 Evidence and limitations: [recruiter setup verification](SETUP_VERIFICATION.md). No packaged-runtime defect was found; genuine OpenAI behavior and empirical measurements remain unperformed.
