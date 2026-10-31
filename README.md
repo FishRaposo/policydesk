@@ -30,6 +30,7 @@ Defaults: GPT-6 Luna, low reasoning, Standard processing, $0.05 per ticket and $
 
 ## Quickstart (no API key)
 
+Minimum requirements: Python 3.12+ only — no Docker, database, key, or `make`.
 Install [uv](https://docs.astral.sh/uv/), then:
 
 ```bash
@@ -40,6 +41,10 @@ uv run policydesk demo
 uv run policydesk list-cases
 uv run policydesk eval --split heldout
 ```
+
+Without uv: `python -m venv .venv && .venv\Scripts\activate` (Windows) or
+`source .venv/bin/activate`, then `python -m pip install -e .` — the `uv sync
+--locked` path is the canonical, lockfile-verified install.
 
 Dependency installation needs network access. Once dependencies are installed, replay runs without a key or provider connection. A missing or mismatched cassette raises an error; it never silently selects a canned default. Synthetic replay accepts only its known ticket fixtures. The opt-in local OpenAI mode accepts new fictional ticket text and requires your own key and explicit Run confirmation.
 
