@@ -4,6 +4,8 @@
 
 **OpenAI integration implemented; live verification and empirical results not yet performed.**
 
+**At a glance.** Deterministic code decides the outcome from a versioned fictional policy, checks the reply, and routes anything unsupported to a person; refund and cancellation proposals wait for approval bound to the exact action. The public demo runs on authored fixtures and makes no model calls.
+
 A support-policy prototype: deterministic code decides the outcome from a versioned fictional policy, checks the reply, and routes unsupported requests to a person. Refund and cancellation proposals wait for human approval bound to the exact action. Approval records authorization only; nothing executes.
 
 **Public demo:** extraction and reply fixtures are authored, not recorded OpenAI responses. GitHub Pages uses fictional facts and localized templates and makes no model calls. The optional local app uses your key only after you explicitly start a run. No real customer data or financial action is involved.
