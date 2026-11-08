@@ -1,6 +1,6 @@
 # Tasks
 
-Work top to bottom. **Only M0 blocks the first release.** Each task lands as its own commit (conventional commits) with its tests. Log coding-agent sessions in [BUILD-LOG.md](BUILD-LOG.md).
+Work top to bottom. **Only M0 blocks the first release.** Each task lands as its own commit (conventional commits) with its tests. Log coding-agent sessions in [BUILD-LOG.md](../BUILD-LOG.md).
 
 ## M0 — first release
 

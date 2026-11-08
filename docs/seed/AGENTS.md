@@ -4,9 +4,9 @@ Instructions for coding agents (Codex, Claude Code, others) working in this repo
 
 ## Read first
 
-1. [docs/TASKS.md](docs/TASKS.md) — pick the next unfinished task. Only M0 tasks until `v0.1.0` is tagged.
-2. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — contracts, validators, modes. Don't change a contract without updating it there.
-3. [docs/DOMAIN.md](docs/DOMAIN.md) and [docs/EVALS.md](docs/EVALS.md) when the task touches policy, fixtures or evaluation.
+1. [docs/TASKS.md](../TASKS.md) — pick the next unfinished task. Only M0 tasks until `v0.1.0` is tagged.
+2. [docs/ARCHITECTURE.md](../ARCHITECTURE.md) — contracts, validators, modes. Don't change a contract without updating it there.
+3. [docs/DOMAIN.md](../DOMAIN.md) and [docs/EVALS.md](../EVALS.md) when the task touches policy, fixtures or evaluation.
 
 ## Rules
 
