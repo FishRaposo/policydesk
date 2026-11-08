@@ -16,7 +16,7 @@ live = ["openai==2.54.0", "fastapi>=0.115,<1", "uvicorn>=0.34,<1"]
 policydesk = "policydesk.cli:app"
 
 [dependency-groups]
-dev = ["pytest>=9,<10", "ruff>=0.14,<1", "pyright>=1.1.400,<2", "types-PyYAML>=6", "pillow>=12,<13"]
+dev = ["pytest>=9,<10", "ruff>=0.14,<1", "pyright>=1.1.400,<2", "types-PyYAML>=6", "pillow>=12,<14"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
