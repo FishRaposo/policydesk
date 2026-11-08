@@ -18,3 +18,5 @@ for a model verdict.
 actions, and its own banner says so. The live OpenAI path is implemented and empirically unverified;
 the card repeats that rather than implying it ran. Crops are cut at whitespace, laid out 1000×750 and
 downscaled with Lanczos.
+
+**Social preview:** `docs/media/social-preview.png` is the 1280×640 GitHub card (a composite of the cover card with the repository name and thesis). Upload it in Settings → Social preview; a repo edit cannot set it.
