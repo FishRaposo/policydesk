@@ -1,0 +1,54 @@
+# Dependency policy (portfolio task X7):
+# - minor and patch updates arrive as one grouped PR per ecosystem;
+# - major versions of the framework packages below are ignored and
+#   migrated deliberately, never merged automatically.
+version: 2
+
+updates:
+  # Python: pyproject.toml + uv.lock at the repository root.
+  - package-ecosystem: uv
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      python-minor-patch:
+        update-types: ["minor", "patch"]
+    ignore:
+      - dependency-name: pydantic
+        update-types: ["version-update:semver-major"]
+      - dependency-name: typer
+        update-types: ["version-update:semver-major"]
+      - dependency-name: pyyaml
+        update-types: ["version-update:semver-major"]
+      - dependency-name: lingua-language-detector
+        update-types: ["version-update:semver-major"]
+      # The live extra is pinned to the recorded prototype version.
+      - dependency-name: openai
+        update-types: ["version-update:semver-major"]
+
+  # Web sandbox: web/package.json + web/package-lock.json.
+  - package-ecosystem: npm
+    directory: /web
+    schedule:
+      interval: weekly
+    groups:
+      web-minor-patch:
+        update-types: ["minor", "patch"]
+    ignore:
+      - dependency-name: vite
+        update-types: ["version-update:semver-major"]
+      - dependency-name: vitest
+        update-types: ["version-update:semver-major"]
+      - dependency-name: typescript
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@playwright/test"
+        update-types: ["version-update:semver-major"]
+
+  # Workflow actions in .github/workflows.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions-minor-patch:
+        update-types: ["minor", "patch"]

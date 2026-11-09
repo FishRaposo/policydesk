@@ -34,7 +34,7 @@ Defaults: GPT-6 Luna, low reasoning, Standard processing, $0.05 per ticket and $
 
 ## Quickstart (no API key)
 
-Minimum requirements: Python 3.12+ only — no Docker, database, key, or `make`.
+Minimum requirements: Python 3.12 only — no Docker, database, key, or `make`.
 Install [uv](https://docs.astral.sh/uv/), then:
 
 ```bash
