@@ -17,10 +17,10 @@
     "proof": "node scripts/capture-proof.mjs"
   },
   "devDependencies": {
-    "@playwright/test": "^1.56.1",
+    "@playwright/test": "^1.65.0",
     "@types/node": "^24.19.2",
     "typescript": "~5.9.3",
-    "vite": "^8.0.0",
+    "vite": "^8.3.6",
     "vitest": "^4.1.12"
   }
 }
